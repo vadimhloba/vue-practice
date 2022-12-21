@@ -56,23 +56,7 @@ export default{
     },
     reset(){
       this.step = 0
-      this.quiz = [
-        {
-          question: 'How are you?',
-          options: ['good', 'nice', 'hyevo'],
-          answer: null
-        },
-        {
-          question: 'Where are you?',
-          options: ['usa', 'russia', 'china'],
-          answer: null
-        },
-        {
-          question: 'What are you?',
-          options: ['men', 'women'],
-          answer: null
-        }
-      ]
+      this.quiz.forEach(item => item.answers = null)
     }
   },
   mounted(){
