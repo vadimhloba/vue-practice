@@ -12,56 +12,124 @@
   		</div>
 		</header>
 
-		<section v-if="showLatestData" class="main">
+		<div v-if="quiz.length === step" class="thanks">
+      <h1>Thank you, we will contact you shortly</h1>
+      <p v-for="item in quiz">
+        {{ item.questions }} - <b>{{ item.answer }}</b>
+      </p>
+      <button @click="reset" >reset quiz</button>
+    </div>
+
+		<section v-else class="main">
 			<div class="container">
-				<div class="wrapper">
+				<div class="wrapper"></div>
+				<div class="wrap">
 					<h1>25%</h1>
 					<div class="slider">
 						<div class="tab-move"></div>
 						<div class="static"></div>
 					</div>
 					<div class="text-main">
-						<h2>Does your household participate in any of the following government programs?</h2>
+						<h2
+							v-for="(item, index) in quiz[step].questions"
+							:key="item +'__'+ index">
+							{{ item }}
+						</h2>
 						<ul>
-							<li>Food Stamps/SNAP</li>
-							<li>Supplemental Security Income (SSI)</li>
-							<li>Veterans Pension benefit or Survivors Pension</li>
-							<li>Medicaid</li>
-							<li>Federal Public Housing Assistance (Section 8)</li>
-							<li>Bureau of Indian Affairs General Assistance (BIA)</li>
-							<li>Tribally Administered Temporary Assistance to Needy Families (Tribal TANF)</li>
-							<li>Tribal Head Start (via income qualifying standard)</li>
-							<li>Food Distribution Program on Indian Reservations (FDPIR)</li>
-							<li>Household Income is 200% or less of the 2022 Federal Poverty Guidelines</li>
-							<li>School Lunch Programs</li>
-							<li>Current Pell Grant Recipients</li>
+							<li 
+								v-for="(item, index) in quiz[step].massages"
+								:key="item +'__'+ index">
+								{{ item }}
+							</li>
 						</ul>
 					</div>
-					<button @click="switchData" class="yes">Yes</button>
-					<button @click="switchData" class="no">No</button>
+					<input
+						v-for="(item, index) in quiz[step].codes"
+						:key="item +'__'+ index"
+						type="text" placeholder="Enter Zip Code" required>
+					<button
+						v-for="(item, index) in quiz[step].options"
+						@click="answer(item)"
+						:key="item +'__'+ index">
+						{{ item }}
+					</button>
 				</div>
 			</div>
 		</section>
-		
-		<Second v-if="showNewData"/>
 
+		<section v-else class="preload">
+			<h3>Checking Qualifications</h3>
+			<div class="container" v-if="!dowloadComplete">
+				<div class="counter">{{ dowloadProgress }}%</div>
+				<!-- <Preloader class="preloader" @:style="{ width: dowloadProgress + '%'}"/> -->
+			</div>
+		</section>
+		
 	</div>
 </template>
 
 <script>
+
 export default {
-		data(){
-			return{
-				showLatestData: true,
-				showNewData: ''
+  data() {
+    return {
+			step: 0,
+			dowloadProgress: 0,
+			dowloadComplete: false,
+			quiz: [
+				{
+					questions: ['Does your household participate in any of the following government programs?'],
+					massages: ['Food Stamps/SNAP', 'Supplemental Security Income (SSI)',
+					'Veterans Pension benefit or Survivors Pension', 'Medicaid',
+					'Federal Public Housing Assistance (Section 8)',
+					'Bureau of Indian Affairs General Assistance (BIA)',
+					'Tribally Administered Temporary Assistance to Needy Families (Tribal TANF)',
+					'Tribal Head Start (via income qualifying standard)',
+					'Food Distribution Program on Indian Reservations (FDPIR)',
+					'Household Income is 200% or less of the 2022 Federal Poverty Guidelines',
+					'School Lunch Programs', 'Current Pell Grant Recipients'],
+					options: ['Yes', 'No'],
+					answer: null
+				},
+				{
+					questions: ['Does your household currently have a Lifeline program phone?'],
+					options: ['Not Sure', 'Yes', 'No'],
+					answer: null
+				},
+				{
+					questions: ['Once you are qualified for the program, would you like a new phone for free?'],
+					options: ['I want a free phone',
+					'I want to keep my smartphone (Receive a free Sim Card)', 'No'],
+					answer: null
+				},
+				{
+					questions: ['Does your current address match what the US Government has on file for your benefits?',
+					'(If you`re not sure what address you have on file, you can call (800) 234-9473 to confirm)`'],
+					options: ['Not Sure', 'Yes', 'No'],
+					answer: null
+				},
+				{
+					questions: ['Great! To Get Started, Enter your Zip Code:'],
+					codes: ['Enter Zip Code'],
+					options: ['APPLY NOW APPLY NOW'],
+					answer: null
 				}
-			},
-		methods: {
-			switchData(){
-				this.showLatestData = false;
-				this.showNewData = true;
-			}
+			]
 		}
+  },
+    methods: {
+    answer(a){
+			this.quiz[this.step].answer = a
+			this.step = this.step + 1
+			localStorage.step = this.step
+			localStorage.quiz = JSON.stringify(this.quiz)
+		}
+  },
+		watch: {
+		dowloadProgress(newProgress) {
+			this.dowloadProgress = newProgress;
+		}
+	}
 }
 </script>
 
@@ -129,18 +197,75 @@ header .logo-desc{
 }
 /* header END */
 
+/* preload START */
+.preload{
+	padding-top: 200px;
+	padding-bottom: 265px;
+}
+.preload h3{
+	display: block;
+	font-weight: 700;
+	font-size: 55px;
+	line-height: 67px;
+	color: #FFFFFF;
+	margin: 0 auto;
+	max-width: 691px;
+	width: 100%;
+}
+.preload .container{
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	margin-top: 135px;
+}
+.counter{
+	position: absolute;
+	z-index: 2;
+	font-weight: 400;
+	font-size: 61.3081px;
+	line-height: 70px;
+	color: #000000;
+}
+.preloader{
+	display: block;
+	position: relative;
+	z-index: 1;
+	margin: 0 auto;
+	max-width: 311px;
+	width: 100%;
+	transition: width 0.5s ease;
+}
+/* preload END */
+
 /* section main START */
 .main{
+	position: relative;
 	padding-bottom: 80px;
 }
+.main .container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .main .wrapper{
+	position: relative;
 	max-width: 745px;
 	width: 100%;
+	height: 903px;
 	margin: 0 auto;
 	background: #FFFFFF;
 	border-radius: 14px;
-	padding: 67px 71px 65px 70px;
+	padding: 5px 71px 5px 70px;
 	color: #000000;
+	z-index: 1;
+}
+.main .wrap{
+	position: absolute;
+	z-index: 2;
+	height: auto;
+	max-width: 745px;
+	width: 100%;
 }
 .main h1{
 	display: block;
@@ -189,7 +314,7 @@ header .logo-desc{
 }
 .main ul{
 	margin-left: 28px;
-	padding: 31px 0 50px 10px;
+	padding: 31px 0 20px 10px;
 	width: 100%;
 	max-width: 541px;
 	list-style: outside;
@@ -198,6 +323,23 @@ header .logo-desc{
 	font-weight: 500;
 	font-size: 18px;
 	line-height: 126.9%;
+}
+.main input[type=text]{
+	display: block;
+	margin: 50px auto;
+	padding: 29px 0 28px 31px;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 22px;
+	color: #BFBFBF;
+	border: 1px solid #BFBFBF;
+	border-radius: 15px;
+	max-width: 670px;
+	width: 100%;
+	transition: .7s;
+}
+input[type=text]:focus {
+  border: 1px solid #555;
 }
 .main button{
 	display: block;
@@ -214,9 +356,7 @@ header .logo-desc{
 	font-size: 18px;
 	line-height: 22px;
 	color: #FFFFFF;
-}
-.main .yes{
-	margin-bottom: 30px;
+	margin-top: 30px;
 }
 /* section main END */
 
