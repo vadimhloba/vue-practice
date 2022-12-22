@@ -24,11 +24,13 @@
 			<div class="container">
 				<div class="wrapper"></div>
 				<div class="wrap">
-					<h1>25%</h1>
-					<div class="slider">
-						<div class="tab-move"></div>
-						<div class="static"></div>
-					</div>
+					<h1>{{ quizProgress }}%</h1>
+					<transition name="slide">
+						<div class="slider">
+							<div class="tab-move" :style="{ width: progress + '%'}"></div>
+							<div class="static"></div>
+						</div>
+					</transition>
 					<div class="text-main">
 						<h2
 							v-for="(item, index) in quiz[step].questions"
@@ -61,7 +63,7 @@
 			<h3>Checking Qualifications</h3>
 			<div class="container" v-if="!dowloadComplete">
 				<div class="counter">{{ dowloadProgress }}%</div>
-				<!-- <Preloader class="preloader" @:style="{ width: dowloadProgress + '%'}"/> -->
+				<Preloader class="preloader" :style="{ width: dowloadProgress + '%'}"/>
 			</div>
 		</section>
 		
@@ -69,10 +71,11 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
+			quizProgress: 0,
+			progress: 0,
 			step: 0,
 			dowloadProgress: 0,
 			dowloadComplete: false,
@@ -123,7 +126,12 @@ export default {
 			this.step = this.step + 1
 			localStorage.step = this.step
 			localStorage.quiz = JSON.stringify(this.quiz)
-		}
+		},
+		// onAnswer(isCorrect) {
+    // if (isCorrect) {
+    //   this.progress += 100 / this.quiz[this.step];
+    // 	}
+  	// },
   },
 		watch: {
 		dowloadProgress(newProgress) {
@@ -276,6 +284,12 @@ header .logo-desc{
 	line-height: 57px;
 	margin: 0 auto;
 }
+.slide-enter-active, .slide-leave-active {
+	transition: width 0.5s;
+}
+.slide-enter, .slide-leave-to {
+	width: 0;
+}
 .main .slider{
 	position: relative;
 	display: block;
@@ -291,7 +305,6 @@ header .logo-desc{
 	content: "";
 	position: absolute;
 	margin-top: -5px;
-	width: 210px;
 	height: 26.28px;
 	background: #005DC4;
 	border-radius: 12.9323px;
@@ -362,11 +375,11 @@ input[type=text]:focus {
 
 /* key-frames START */
 @keyframes lineAnim {
-    0% {
+    from {
         width: 0%;
     }
-    25% {
-        width: 25%;
+    to {
+        width: 100%;
     }
 }
 /* key-frames END */
