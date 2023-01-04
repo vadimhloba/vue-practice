@@ -12,25 +12,36 @@
   		</div>
 		</header>
 
-		<div v-if="quiz.length === step" class="thanks">
+		<div v-if="dowloadComplete" class="thanks">
       <h1>Thank you, we will contact you shortly</h1>
       <p v-for="item in quiz">
         {{ item.questions }} - <b>{{ item.answer }}</b>
       </p>
-      <button @click="reset" >reset quiz</button>
+      <button @click="reset">reset quiz</button>
     </div>
+
+		<section class="preload" v-if="quiz.length === step">
+			<h3>{{ checkProgress }}</h3>
+			<div class="container" v-if="!dowloadComplete">
+				<div class="counter">{{ dowloadProgress }}%</div>
+				<Preloader class="preloader" :style="{ width: dowloadProgress + '%'}"/>
+			</div>
+		</section>
 
 		<section v-else class="main">
 			<div class="container">
 				<div class="wrapper"></div>
 				<div class="wrap">
+
 					<h1>{{ quizProgress }}%</h1>
+
 					<transition name="slide">
 						<div class="slider">
 							<div class="tab-move" :style="{ width: progress + '%'}"></div>
 							<div class="static"></div>
 						</div>
 					</transition>
+
 					<div class="text-main">
 						<h2
 							v-for="(item, index) in quiz[step].questions"
@@ -45,27 +56,26 @@
 							</li>
 						</ul>
 					</div>
-					<input
-						v-for="(item, index) in quiz[step].codes"
-						:key="item +'__'+ index"
-						type="text" placeholder="Enter Zip Code" required>
+
+					<form v-for="(item) in quiz[step].code"
+						@submit.prevent="answer(item)"
+						:key="item">
+						<input v-model="enterCode" type="text" placeholder="Enter Zip Code" required>
+						<input type="submit" value="APPLY NOW APPLY NOW">
+					</form>
+
 					<button
 						v-for="(item, index) in quiz[step].options"
 						@click="answer(item)"
 						:key="item +'__'+ index">
 						{{ item }}
 					</button>
+
 				</div>
 			</div>
 		</section>
 
-		<section v-else class="preload">
-			<h3>Checking Qualifications</h3>
-			<div class="container" v-if="!dowloadComplete">
-				<div class="counter">{{ dowloadProgress }}%</div>
-				<Preloader class="preloader" :style="{ width: dowloadProgress + '%'}"/>
-			</div>
-		</section>
+		
 		
 	</div>
 </template>
@@ -74,11 +84,12 @@
 export default {
   data() {
     return {
-			quizProgress: 0,
-			progress: 0,
-			step: 0,
 			dowloadProgress: 0,
-			dowloadComplete: false,
+      dowloadComplete: false,
+			checkProgress: '',
+			quizProgress: 0,
+			progress: '',
+			step: 0,
 			quiz: [
 				{
 					questions: ['Does your household participate in any of the following government programs?'],
@@ -113,30 +124,54 @@ export default {
 				},
 				{
 					questions: ['Great! To Get Started, Enter your Zip Code:'],
-					codes: ['Enter Zip Code'],
-					options: ['APPLY NOW APPLY NOW'],
+					code: [''],
 					answer: null
 				}
 			]
 		}
   },
-    methods: {
-    answer(a){
+	created() {
+		setInterval(this.updateDowloadProgress, 2000)
+	},
+  methods: {
+  	answer(a){
 			this.quiz[this.step].answer = a
 			this.step = this.step + 1
+			this.calculateQuizProgress()
 			localStorage.step = this.step
 			localStorage.quiz = JSON.stringify(this.quiz)
 		},
-		// onAnswer(isCorrect) {
-    // if (isCorrect) {
-    //   this.progress += 100 / this.quiz[this.step];
-    // 	}
-  	// },
-  },
-		watch: {
-		dowloadProgress(newProgress) {
-			this.dowloadProgress = newProgress;
+		reset(){
+  	  this.step = 0
+  	  this.quiz.forEach(item => item.answers = null)
+			this.progress = 0
+			this.quizProgress = 0
+  	},
+		calculateQuizProgress() {
+    	this.progress = Math.round((this.step / this.quiz.length) * 100)
+			this.quizProgress = this.progress
+  	},
+		updateDowloadProgress() {
+			if (this.dowloadProgress >= 100) {
+				this.dowloadComplete = true
+			} else {
+				this.dowloadProgress += 10
+			}
 		}
+  },
+	computed: {
+		progress() {
+      return this.calculateQuizProgress()
+    },
+		checkProgress() {
+    	if (this.quizProgress < 40) {
+    	  return 'Checking Qualifications'
+    	} else if (this.quizProgress < 80) {
+    	  return 'Checking Availability'
+    	} else {
+    	  return 'You\'ve been matched with Safelink Wireless'
+    	}
+  	}
 	}
 }
 </script>
@@ -310,10 +345,10 @@ header .logo-desc{
 	border-radius: 12.9323px;
 	-webkit-border-radius: 12.9323px;
   -moz-border-radius: 12.9323px;
-	-webkit-animation: lineAnim 1.3s running infinite;
+	/* -webkit-animation: lineAnim 1.3s running infinite;
   -moz-animation: lineAnim 1.3s running infinite;
   animation: lineAnim 1.3s running infinite;
-	animation-iteration-count: 1;
+	animation-iteration-count: 1; */
 }
 
 .main .text-main{
@@ -351,8 +386,25 @@ header .logo-desc{
 	width: 100%;
 	transition: .7s;
 }
-input[type=text]:focus {
+input[type=text]:focus{
   border: 1px solid #555;
+}
+.main input[type=submit]{
+	display: block;
+	cursor: pointer;
+	width: 100%;
+	max-width: 670px;
+	margin: 0 auto;
+	height: 54px;
+	background: #A91313;
+	box-shadow: inset 0px 33px 23px rgba(255, 187, 187, 0.45);
+	border-radius: 15px;
+	border: 0;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 22px;
+	color: #FFFFFF;
+	margin-top: 30px;
 }
 .main button{
 	display: block;
@@ -372,15 +424,4 @@ input[type=text]:focus {
 	margin-top: 30px;
 }
 /* section main END */
-
-/* key-frames START */
-@keyframes lineAnim {
-    from {
-        width: 0%;
-    }
-    to {
-        width: 100%;
-    }
-}
-/* key-frames END */
 </style>
