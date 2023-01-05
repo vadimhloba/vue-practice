@@ -19,12 +19,14 @@
       </p>
       <button @click="reset">reset quiz</button>
     </div>
-
+		
 		<section class="preload" v-if="quiz.length === step">
-			<h3>{{ checkProgress }}</h3>
 			<div class="container" v-if="!dowloadComplete">
-				<div class="counter">{{ dowloadProgress }}%</div>
-				<Preloader class="preloader" :style="{ width: dowloadProgress + '%'}"/>
+				<h3>{{ checkProgress }}</h3>
+				<div class="dowloadPre">
+					<div class="counter">{{ dowloadProgress }}%</div>
+					<Preloader class="preloader" :style="{ width: dowloadProgress + '%'}"/>
+				</div>
 			</div>
 		</section>
 
@@ -33,14 +35,13 @@
 				<div class="wrapper"></div>
 				<div class="wrap">
 
-					<h1>{{ progress }}%</h1>
+					<h1>{{step * (100 / quiz.length)}}%</h1>
 
-					<transition name="slide">
-						<div class="slider">
-							<div class="tab-move" :style="{ width: progress + '%'}"></div>
-							<div class="static"></div>
-						</div>
-					</transition>
+					
+					<div class="slider">
+						<div class="tab-move" :style="`width: ${step * (100 / quiz.length)}%;`"></div>
+					</div>
+					
 
 					<div class="text-main">
 						<h2
@@ -87,7 +88,6 @@ export default {
 			dowloadProgress: 0,
       dowloadComplete: false,
 			checkProgress: 'Checking Qualifications',
-			progress: 0,
 			step: 0,
 			quiz: [
 				{
@@ -130,13 +130,12 @@ export default {
 		}
   },
 	created() {
-		setInterval(this.updateDowloadProgress, 3000)
+		setInterval(this.updateDowloadProgress, 2000);
 	},
   methods: {
   	answer(a){
 			this.quiz[this.step].answer = a
 			this.step = this.step + 1
-			this.calculateQuizProgress()
 			localStorage.step = this.step
 			localStorage.quiz = JSON.stringify(this.quiz)
 		},
@@ -145,29 +144,23 @@ export default {
   	  this.step = 0
   	  this.quiz.forEach(item => item.answers = null)
   	},
-		calculateQuizProgress() {
-    	this.progress = Math.round((this.step / this.quiz.length) * 100)
-  	},
 		updateDowloadProgress() {
 			if (this.dowloadProgress >= 100) {
 				this.dowloadComplete = true
 			} else {
 				this.dowloadProgress += 10
 			}
+
+			// Update the progressText data property based on the progress
+      if (this.dowloadProgress >= 40) {
+        this.checkProgress = 'Checking Availability';
+      }
+      if (this.dowloadProgress >= 80) {
+        this.checkProgress = 'You\'ve been matched with Safelink Wireless';
+      }
+
 		}
-  },
-	computed: {
-		progress() {
-      return this.calculateQuizProgress()
-    },
-		checkProgress() {
-    	if (this.dowloadProgress < 40) {
-    	  return 'Checking Availability'
-    	} else if (this.dowloadProgress < 80) {
-    	  return 'You\'ve been matched with Safelink Wireless'
-    	}
-  	}
-	}
+  }
 }
 </script>
 
@@ -240,6 +233,17 @@ header .logo-desc{
 	padding-top: 200px;
 	padding-bottom: 265px;
 }
+.preload .container{
+	justify-content: center;
+	display: block;
+}
+.preload .dowloadPre{
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	margin-top: 135px;
+}
 .preload h3{
 	display: block;
 	font-weight: 700;
@@ -249,13 +253,6 @@ header .logo-desc{
 	margin: 0 auto;
 	max-width: 691px;
 	width: 100%;
-}
-.preload .container{
-	position: relative;
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	margin-top: 135px;
 }
 .counter{
 	position: absolute;
@@ -272,7 +269,7 @@ header .logo-desc{
 	margin: 0 auto;
 	max-width: 311px;
 	width: 100%;
-	transition: width 0.5s ease;
+	animation: 6s ease-in-out infinite preloader-animation;
 }
 /* preload END */
 
@@ -314,36 +311,25 @@ header .logo-desc{
 	line-height: 57px;
 	margin: 0 auto;
 }
-.slide-enter-active, .slide-leave-active {
-	transition: width 0.5s;
-}
-.slide-enter, .slide-leave-to {
-	width: 0;
-}
 .main .slider{
 	position: relative;
-	display: block;
-	padding: 16px 0 51px;
-}
-.main .slider .static{
+	margin: 16px 0 51px;
 	width: 100%;
 	height: 17.2px;
 	background: #93CEF6;
 	border-radius: 12.9323px;
 }
 .main .slider .tab-move{
-	content: "";
 	position: absolute;
-	margin-top: -5px;
 	height: 26.28px;
 	background: #005DC4;
 	border-radius: 12.9323px;
 	-webkit-border-radius: 12.9323px;
   -moz-border-radius: 12.9323px;
-	/* -webkit-animation: lineAnim 1.3s running infinite;
-  -moz-animation: lineAnim 1.3s running infinite;
-  animation: lineAnim 1.3s running infinite;
-	animation-iteration-count: 1; */
+	transform: translateY(-50%);
+	transition: width .3s ease;
+	left: 0;
+  top: 50%;
 }
 
 .main .text-main{
@@ -419,4 +405,15 @@ input[type=text]:focus{
 	margin-top: 30px;
 }
 /* section main END */
+
+/* key-frames START */
+@keyframes preloader-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* key-frames END */
 </style>
