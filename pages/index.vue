@@ -33,7 +33,7 @@
 				<div class="wrapper"></div>
 				<div class="wrap">
 
-					<h1>{{ quizProgress }}%</h1>
+					<h1>{{ progress }}%</h1>
 
 					<transition name="slide">
 						<div class="slider">
@@ -86,9 +86,8 @@ export default {
     return {
 			dowloadProgress: 0,
       dowloadComplete: false,
-			checkProgress: '',
-			quizProgress: 0,
-			progress: '',
+			checkProgress: 'Checking Qualifications',
+			progress: 0,
 			step: 0,
 			quiz: [
 				{
@@ -131,7 +130,7 @@ export default {
 		}
   },
 	created() {
-		setInterval(this.updateDowloadProgress, 2000)
+		setInterval(this.updateDowloadProgress, 3000)
 	},
   methods: {
   	answer(a){
@@ -142,14 +141,12 @@ export default {
 			localStorage.quiz = JSON.stringify(this.quiz)
 		},
 		reset(){
+			this.progress = 0
   	  this.step = 0
   	  this.quiz.forEach(item => item.answers = null)
-			this.progress = 0
-			this.quizProgress = 0
   	},
 		calculateQuizProgress() {
     	this.progress = Math.round((this.step / this.quiz.length) * 100)
-			this.quizProgress = this.progress
   	},
 		updateDowloadProgress() {
 			if (this.dowloadProgress >= 100) {
@@ -164,11 +161,9 @@ export default {
       return this.calculateQuizProgress()
     },
 		checkProgress() {
-    	if (this.quizProgress < 40) {
-    	  return 'Checking Qualifications'
-    	} else if (this.quizProgress < 80) {
+    	if (this.dowloadProgress < 40) {
     	  return 'Checking Availability'
-    	} else {
+    	} else if (this.dowloadProgress < 80) {
     	  return 'You\'ve been matched with Safelink Wireless'
     	}
   	}
