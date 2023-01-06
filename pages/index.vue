@@ -121,7 +121,7 @@ export default {
       	  if(this.dowloadComplete){
       	  	clearInterval(progressInterval)
       	  }
-      	}, 300);
+      	}, 200);
       }
     },
     reset(){
@@ -235,11 +235,11 @@ button {
 	/* preload START */
 	.preload {
 		position: relative;
-	  padding-top: 200px;
-	  padding-bottom: 265px;
 		.container {
 	  	justify-content: center;
 	  	display: block;
+			padding-top: 200px;
+	  	padding-bottom: 265px;
 		}
 		.dowloadPre {
 	  	position: relative;
@@ -396,6 +396,7 @@ button {
 	/* div thanks START */
 	.thanks {
 		text-align: left;
+		padding-bottom: 100px;
 		.container {
 	  	display: flex;
 	  	justify-content: center;
