@@ -137,7 +137,7 @@ export default {
       if (this.dowloadProgress >= 40 && this.dowloadProgress < 80) {
         this.checkProgress = 'Checking Availability';
       } else if (this.dowloadProgress >= 80 && this.dowloadProgress < 100) {
-        this.checkProgress = 'You\'ve been matched with Safelink Wireless';
+        this.checkProgress = `You've been matched \n with Safelink Wireless`;
       } else if (this.dowloadProgress === 100) {
         this.dowloadComplete = true
       } else {
