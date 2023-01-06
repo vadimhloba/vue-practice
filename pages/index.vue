@@ -28,7 +28,7 @@
 
     <section class="preload" v-if="quiz.length === step">
       <div class="container" v-if="!dowloadComplete">
-        <h3>{{ checkProgress }}</h3>
+        <h3 v-html="checkProgress"></h3>
         <div class="dowloadPre">
           <div class="counter">{{ dowloadProgress }}%</div>
           <Preloader class="preloader"/>
@@ -137,7 +137,7 @@ export default {
       if (this.dowloadProgress >= 40 && this.dowloadProgress < 80) {
         this.checkProgress = 'Checking Availability';
       } else if (this.dowloadProgress >= 80 && this.dowloadProgress < 100) {
-        this.checkProgress = `You've been matched \n with Safelink Wireless`;
+        this.checkProgress = `You've been matched <br> with Safelink Wireless`;
       } else if (this.dowloadProgress === 100) {
         this.dowloadComplete = true
       } else {
