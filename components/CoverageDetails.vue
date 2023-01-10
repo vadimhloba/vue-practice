@@ -26,9 +26,3 @@
 </svg>
 
 </template>
-
-<script scoped>
-export default {
-	name: 'CoverageDetails'
-}
-</script>

@@ -8,7 +8,7 @@
 
 </template>
 
-<style type="text/css" scoped>
+<style scoped>
 @keyframes ldio-d1zmzp57e4u {
   0% { opacity: 1 }
   100% { opacity: .07 }

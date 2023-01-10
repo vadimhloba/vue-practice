@@ -594,9 +594,3 @@
 	</svg>
 
 </template>
-
-<script scoped>
-export default {
-	name: 'UsMap'
-}
-</script>

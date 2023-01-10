@@ -1,8 +1,5 @@
 export default {
-  // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'content',
     htmlAttrs: {
@@ -18,19 +15,5 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-  ],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-  ],
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
 }
