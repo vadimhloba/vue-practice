@@ -29,7 +29,7 @@
 						phone number and receive a program SIM for free service.</p>
 				</div>
 				<div class="col-two">
-					<img src="/vue-practices/vue-practice/components/img/phone-pic.png" class="phone-pic"/>
+					<img src="img/phone-pic.png" class="phone-pic"/>
 				</div>
 			</div>
 		</section>
@@ -45,14 +45,14 @@
 						and Zoom meetings.</h2>
 					<div class="point">
 						<div class="row-one">
-							<img src="/vue-practices/vue-practice/components/img/data-pic.svg" class="data-pic">
+							<img src="img/data-pic.png" class="data-pic">
 							<p>FREE 25GB of High-
 								Speed Data AND UP TO 5GB
 								of Hotspot Data**
 								Compatible device required.</p>
 						</div>
 						<div class="row-two">
-							<img src="/vue-practices/vue-practice/components/img/talk-pic.svg" class="talk-pic">
+							<img src="img/talk-pic.png" class="talk-pic">
 							<p>Unlimited Talk & Text + Calls
 								to Canada & Mexico* + FREE
 								Smartphone or SIM Card
@@ -62,7 +62,7 @@
 					<button>GET FREE UNLIMITED TALK &TEXT + DATA EVERY MONTH >></button>
 				</div>
 				<div class="col-two">
-					<img src="/vue-practices/vue-practice/components/img/call-pic.png" class="call-pic"/>
+					<img src="img/call-pic.png" class="call-pic"/>
 				</div>
 			</div>
 		</section>
@@ -104,18 +104,18 @@
 						or more of the following criteria:</h2>
 					<div class="point">
 						<div class="row-one">
-							<img src="/vue-practices/vue-practice/components/img/cross-pic.svg" class="cross-pic">
+							<img src="img/cross-pic.png" class="cross-pic">
 							<h1>GOVERNMENT ASSISTANCE</h1>
 							<p>You participate in certain assistance programs
 								such as SNAP, Medicaid, or LifeLine.</p>
 						</div>
 						<div class="row-two">
-							<img src="/vue-practices/vue-practice/components/img/apple-pic.svg" class="apple-pic">
+							<img src="img/apple-pic.png" class="apple-pic">
 							<h1>RECEIVED A PELL GRANT</h1>
 							<p>You received a Federal Pell Grant during the current award year.</p>
 						</div>
 						<div class="row-three">
-							<img src="/vue-practices/vue-practice/components/img/dollar-pic.svg" class="dollar-pic">
+							<img src="img/dollar-pic.png" class="dollar-pic">
 							<h1>LUNCH PROGRAMS</h1>
 							<p>You received approval for benefits under the free
 								and reduced-price school lunch program.</p>
@@ -212,7 +212,7 @@ input[type=text], input[type=submit], button{
 }
 img {
 	display: block;
-	width: 100%;
+	max-width: 100%;
 	height: auto;
 
 }
