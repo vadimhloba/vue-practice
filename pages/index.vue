@@ -259,7 +259,7 @@ button {
 }
 @media(min-width:1200px) {
   .container {
-    width: 1190px;
+    width: 1180px;
   }
 }
 </style>
@@ -275,12 +275,17 @@ p, ul, li, h1, h2, h3, b {
 	background: radial-gradient(207.45% 148.69% at 43.02% 104.62%, #F9FBFB 0%, #F9FBFB 0%, #3E81B8 100%, #204D8D 100%, #204D8D 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #FFFFFF;
 	/* header START */
 	header {
-	  padding: 21px 0 56px;
+		padding: 10px 0 29px;
 		background: #0054AC;
 		.container {
 	  	display: flex;
-	  	justify-content: flex-start;
+	  	justify-content: center;
 	  	align-items: center;
+		}
+		@media (min-width: 992px) {
+			.container {
+				justify-content: flex-start;
+			}
 		}
 		.logo-desc {
 	  	font-weight: 800;
@@ -293,44 +298,96 @@ p, ul, li, h1, h2, h3, b {
 	  	margin-left: 12px;
 		}
 	}
+	@media (min-width: 768px) {
+		header {
+			padding: 21px 0 56px;
+		}
+	}
 	/* header END */
 
 	/* free-smartphone START */
 	.free-smartphone {
-		padding-bottom: 120px;
+		padding-bottom: 62px;
 		background: #0054AC;
 		.container {
 			display: flex;
+			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 		}
+		@media (min-width: 992px) {
+			.container {
+				flex-direction: row;
+			}
+		}
 		.col-one {
-			width: calc(100% / 2);
+			width: 100%;
 			color: #FFFFFF;
 			h1 {
 				font-weight: 800;
-				font-size: 69.6186px;
-				line-height: 85px;
+				font-size: 24px;
+				line-height: 29px;
 				text-transform: uppercase;
-				min-width: 778.74px;
-				width: 100%;
+				text-align: center;
 				b {
 					font-weight: 800;
 					color: #B52A2A;
 				}
 			}
+			@media (min-width: 576px) {
+				h1 {
+					font-size: 31px;
+    			line-height: 35px;
+				}
+			}
+			@media (min-width: 768px) {
+				h1 {
+					font-size: 47px;
+    			line-height: 60px;
+				}
+			}
+			@media (min-width: 992px) {
+				h1 {
+					text-align: left;
+					font-size: 69.6186px;
+					line-height: 85px;
+					min-width: 778.74px;
+					width: 100%;
+				}
+			}
 			h2 {
 				font-weight: 700;
-				font-size: 34px;
-				line-height: 41px;
-				margin: 40px 0 34px;
+				font-size: 23px;
+				line-height: 25px;
+				margin: 29px 0 20px;
+				text-align: center;
+			}
+			@media (min-width: 768px) {
+				h2 {
+					margin: 40px 0 34px;
+					font-size: 34px;
+					line-height: 41px;
+				}
+			}
+			@media (min-width: 992px) {
+				h2 {
+					text-align: left;
+				}
 			}
 			ul {
+				padding: 0;
 				font-weight: 500;
-				font-size: 24px;
-				line-height: 29px;
+				font-size: 20px;
+				line-height: 24px;
+				text-align: center;
 				li {
-					margin-bottom: 17px;
+					margin-bottom: 12px;
+					list-style-position: inside;
+				}
+				@media (min-width: 768px) {
+					li {
+						margin-bottom: 17px;
+					}
 				}
 				li:last-child {
 					margin-bottom: 0;
@@ -339,28 +396,93 @@ p, ul, li, h1, h2, h3, b {
 					font-size: 22px;
 				}
 			}
+			@media (min-width: 768px) {
+				ul {
+					font-size: 24px;
+					line-height: 29px;
+				}
+			}
+			@media (min-width: 992px) {
+				ul {
+					padding-left: 40px;
+					text-align: left;
+				}
+			}
 			button {
-				max-width: 413px;
+				max-width: 370px;
 				justify-content: start;
-				margin: 46px 0 30px;
+				margin: 30px auto 20px;
+				font-size: 24px;
+				line-height: 26px;
+				padding: 18px 0;
+			}
+			@media (min-width: 768px) {
+				button {
+					max-width: 413px;
+					padding: 26px 0 25px;
+					margin: 46px auto 30px;
+					margin: 46px 0 30px;
+				}
+			}
+			@media (min-width: 992px) {
+				button {
+					margin: 46px 0 30px;
+				}
 			}
 			p {
-				max-width: 524px;
-				width: 100%;
 				font-weight: 400;
 				font-size: 18px;
 				line-height: 22px;
+				text-align: center;
+				margin: 0 auto;
+			}
+			@media (min-width: 768px) {
+				p {
+					padding: 0 30px;
+				}
+			}
+			@media (min-width: 992px) {
+				p {
+					text-align: left;
+					margin: 0;
+					max-width: 524px;
+					width: 100%;
+				}
+			}
+		}
+		@media (min-width: 992px) {
+			.col-one {
+				width: calc(100% / 2);
 			}
 		}
 		.col-two {
-			position: relative;
-			width: calc(100% / 2);
+			width: 90%;
+			margin: 0 auto;
 			.phone-pic {
-				position: absolute;
-				top: 0;
-				left: 0;
-				transform: translate(15%, -45%);
+				display: block;
+				margin-top: 20px;
 			}
+			@media (min-width: 992px) {
+				.phone-pic {
+					margin-top: 0;
+					position: absolute;
+					top: 0;
+					left: 0;
+					transform: translate(15%, -45%);
+					width: 100%;
+				}
+			}
+		}
+		@media (min-width: 992px) {
+			.col-two {
+				position: relative;
+				width: calc(100% / 2);
+			}
+		}
+	}
+	@media (min-width: 768px) {
+		.free-smartphone {
+			padding-bottom: 120px;
 		}
 	}
 	/* free-smartphone END */
@@ -425,6 +547,21 @@ p, ul, li, h1, h2, h3, b {
 				line-height: 24px;
 				margin-top: 60px;
 			}
+			@media (min-width: 992px) {
+				button {
+					padding: 22px 0;
+					font-weight: 700;
+					font-size: 18px;
+					line-height: 22px;
+					margin-top: 60px;
+				}
+			}
+			@media (min-width: 1200px) {
+				button {
+					font-size: 20px;
+					line-height: 24px;
+				}
+			}
 		}
 		.col-two {
 			position: relative;
@@ -434,6 +571,7 @@ p, ul, li, h1, h2, h3, b {
 				top: 0;
 				left: 0;
 				transform: translate(6%, -54%);
+				width: 100%;
 			}
 		}
 	}
@@ -625,6 +763,7 @@ p, ul, li, h1, h2, h3, b {
 		padding-bottom: 120px;
 		.map-pic {
 			margin-bottom: 100px;
+			width: 100%;
 		}
 	}
 	/* map END */
