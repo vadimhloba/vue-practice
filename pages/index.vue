@@ -76,19 +76,25 @@
 						Simply follow these steps:</h2>
 					<div class="point">
 						<div class="row-one">
-							<h2 class="bg-number">1</h2>
-							<h1>CONFIRM ELIGIBILITY</h1>
-							<p>Confirm if anyone in your household participates in a qualifying program.</p>
+							<div class="wrapper">
+								<h1 class="bg-number">1</h1>
+								<h2>CONFIRM ELIGIBILITY</h2>
+								<p>Confirm if anyone in your household participates in a qualifying program.</p>
+							</div>
 						</div>
 						<div class="row-two">
-							<h2 class="bg-number">2</h2>
-							<h1>APPLY FOR ACP</h1>
-							<p>Provide the necessary information or fill out your application.</p>
+							<div class="wrapper">
+								<h1 class="bg-number">2</h1>
+								<h2>APPLY FOR ACP</h2>
+								<p>Provide the necessary information or fill out your application.</p>
+							</div>
 						</div>
 						<div class="row-three">
-							<h2 class="bg-number">3</h2>
-							<h1>ENJOY YOUR SERVICE</h1>
-							<p>Receive a notification of your approval within 48 hours.</p>
+							<div class="wrapper">
+								<h1 class="bg-number">3</h1>
+								<h2>ENJOY YOUR SERVICE</h2>
+								<p>Receive a notification of your approval within 48 hours.</p>
+							</div>
 						</div>
 					</div>
 					<button>CONFIRM ELIGIBILITY >></button>
@@ -104,21 +110,27 @@
 						or more of the following criteria:</h2>
 					<div class="point">
 						<div class="row-one">
-							<img src="img/cross-pic.png" class="cross-pic">
-							<h1>GOVERNMENT ASSISTANCE</h1>
-							<p>You participate in certain assistance programs
-								such as SNAP, Medicaid, or LifeLine.</p>
+							<div class="wrapper">
+								<img src="img/cross-pic.png" class="cross-pic">
+								<h1>GOVERNMENT ASSISTANCE</h1>
+								<p>You participate in certain assistance programs
+									such as SNAP, Medicaid, or LifeLine.</p>
+							</div>
 						</div>
 						<div class="row-two">
-							<img src="img/apple-pic.png" class="apple-pic">
-							<h1>RECEIVED A PELL GRANT</h1>
-							<p>You received a Federal Pell Grant during the current award year.</p>
+							<div class="wrapper">
+								<img src="img/apple-pic.png" class="apple-pic">
+								<h1>RECEIVED A PELL GRANT</h1>
+								<p>You received a Federal Pell Grant during the current award year.</p>
+							</div>
 						</div>
 						<div class="row-three">
-							<img src="img/dollar-pic.png" class="dollar-pic">
-							<h1>LUNCH PROGRAMS</h1>
-							<p>You received approval for benefits under the free
-								and reduced-price school lunch program.</p>
+							<div class="wrapper">
+								<img src="img/dollar-pic.png" class="dollar-pic">
+								<h1>LUNCH PROGRAMS</h1>
+								<p>You received approval for benefits under the free
+									and reduced-price school lunch program.</p>
+							</div>
 						</div>
 					</div>
 					<button>CHECK ELIGIBILITY >></button>
@@ -169,12 +181,12 @@
 		<footer>
 			<div class="container">
 				<div class="column">
-					<p>Video typically streams at DVD quality.
+					<p>Video typically streams at DVD quality.<br>
 						*Dial up to 15 unique landline and mobile numbers
 						(in select destinations only, which are subject to change at any time)
-						each 30-day cycle. Calls must originate from the US or Puerto Rico;
-						no international roaming allowed. **Your Hotspot or BYOP service
-						can only be activated where Service is available, offered, and supported.
+						each 30-day cycle. Calls must <br> originate from the US or Puerto Rico;
+						no international roaming allowed. <br> **Your Hotspot or BYOP service
+						can only be activated where Service is available, offered, and supported. <br>
 						Unused balance will not carry over from month to month. A month equals 30 days.</p>
 				</div>
 			</div>
@@ -324,8 +336,7 @@ p, ul, li, h1, h2, h3, b {
 					margin-bottom: 0;
 				}
 				li::marker {
-						font-size: 12px;
-						margin: auto 0;
+					font-size: 22px;
 				}
 			}
 			button {
@@ -334,6 +345,8 @@ p, ul, li, h1, h2, h3, b {
 				margin: 46px 0 30px;
 			}
 			p {
+				max-width: 524px;
+				width: 100%;
 				font-weight: 400;
 				font-size: 18px;
 				line-height: 22px;
@@ -346,7 +359,7 @@ p, ul, li, h1, h2, h3, b {
 				position: absolute;
 				top: 0;
 				left: 0;
-				transform: translate(12%, -39%);
+				transform: translate(15%, -45%);
 			}
 		}
 	}
@@ -354,14 +367,14 @@ p, ul, li, h1, h2, h3, b {
 
 	/* cov-details START */
 	.cov-details {
-		padding: 67px 0 74px;
+		padding: 179px 0 120px;
 		.container {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 		}
 		.col-one {
-			width: 703px;
+			width: 713px;
 			h1 {
 				font-weight: 800;
 				font-size: 42px;
@@ -369,34 +382,40 @@ p, ul, li, h1, h2, h3, b {
 			}
 			h2 {
 				font-weight: 400;
-				font-size: 24px;
-				line-height: 29px;
+				font-size: 22px;
+				line-height: 27px;
 				margin: 60px 0 40px;
 			}
 			.point {
 				display: flex;
-				.row-one {
-					display: flex;
-					margin-right: 77px;
-					p {
+				align-items: start;
+				p {
 						max-width: 257px;
 						width: 100%;
 						font-weight: 400;
-						font-size: 18px;
-						line-height: 22px;
+						font-size: 17px;
+						line-height: 21px;
 						margin-left: 15px;
 					}
+					.data-pic {
+						max-width: 30.48px;
+						width: 100%;
+						height: 51px;
+					}
+					.talk-pic {
+						max-width: 46.92px;
+						width: 100%;
+						height: 51px;
+					}
+				.row-one {
+					align-items: center;
+					display: flex;
+					margin-right: 63px;
+					
 				}
 				.row-two {
+					align-items: center;
 					display: flex;
-					p {
-						max-width: 257px;
-						width: 100%;
-						font-weight: 400;
-						font-size: 18px;
-						line-height: 22px;
-						margin-left: 15px;
-					}
 				}
 			}
 			button {
@@ -414,7 +433,7 @@ p, ul, li, h1, h2, h3, b {
 				position: absolute;
 				top: 0;
 				left: 0;
-				transform: translate(10%, -40%);
+				transform: translate(6%, -54%);
 			}
 		}
 	}
@@ -437,11 +456,31 @@ p, ul, li, h1, h2, h3, b {
 			font-weight: 400;
 			font-size: 24px;
 			line-height: 29px;
-			margin: 60px 0 30px;
+			margin: 60px 0 0 0;
 		}
 		.point {
 			display: flex;
 			h1 {
+				position: absolute;
+				top: -50%;
+				left: 50%;
+				transform: translate(-50%, -33%);
+				margin: 0 auto;
+				color: rgba(0, 93, 196, 0.11);
+				font-weight: 900;
+				font-size: 290.244px;
+				line-height: 354px;
+			}
+			.wrapper {
+				position: relative;
+			}
+			.row-one, .row-two {
+				.wrapper {
+					margin-right: 60px;
+				}
+			}
+			h2 {
+				margin: 164px 0 30px;
 				font-weight: 700;
 				font-size: 24px;
 				line-height: 29px;
@@ -450,15 +489,6 @@ p, ul, li, h1, h2, h3, b {
 				font-weight: 500;
 				font-size: 18px;
 				line-height: 22px;
-			}
-			.row-one {
-				margin-right: 112px;
-			}
-			.row-two {
-				margin-right: 112px;
-			}
-			.rwo-three {
-				background-image: url(#);
 			}
 		}
 		button {
@@ -482,14 +512,22 @@ p, ul, li, h1, h2, h3, b {
 			line-height: 51px;
 		}
 		h2 {
+			display: block;
+			max-width: 541px;
+			width: 100%;
+			margin: 60px auto 30px;
 			font-weight: 400;
 			font-size: 24px;
 			line-height: 29px;
-			margin: 60px 0 30px;
 		}
 		.point {
-			display: flex;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-column-gap: 75px;
+			align-items: center;
 			img {
+				margin-left: auto;
+				margin-right: auto;
 				margin-bottom: 8px;
 			}
 			h1 {
@@ -504,13 +542,18 @@ p, ul, li, h1, h2, h3, b {
 				line-height: 22px;
 			}
 			.row-one {
-				margin-right: 112px;
+				p {
+					max-width: 334px;
+					width: 100%;
+					margin: 0 auto;
+				}
 			}
 			.row-two {
-				margin-right: 112px;
-			}
-			.rwo-three {
-				background-image: url(#);
+				p {
+					max-width: 266px;
+					width: 100%;
+					margin: 0 auto;
+				}
 			}
 		}
 		button {
@@ -554,13 +597,16 @@ p, ul, li, h1, h2, h3, b {
 				}
 				ul {
 					font-weight: 700;
-					font-size: 24px;
-					line-height: 29px;
+					font-size: 22px;
+					line-height: 27px;
 					li {
+						list-style: url();
 						margin-bottom: 30px;
 					}
 				}
 				p {
+					max-width: 404px;
+					width: 100%;
 					font-weight: 500;
 					font-size: 18px;
 					line-height: 22px;
@@ -593,7 +639,7 @@ p, ul, li, h1, h2, h3, b {
 		}
 		p {
 			font-weight: 600;
-			font-size: 16px;
+			font-size: 15px;
 			line-height: 135.9%;
 			color: #FFFFFF;
 		}
