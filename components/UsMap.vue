@@ -594,3 +594,9 @@
 	</svg>
 
 </template>
+
+<style scoped>
+svg {
+	height: auto;
+}
+</style>

@@ -238,9 +238,15 @@ button {
 	border-radius: 15px;
 	border: 0;
 	font-weight: 700;
-	font-size: 24px;
-	line-height: 29px;
+	font-size: 22px;
+	line-height: 27px;
 	color: #FFFFFF;
+}
+@media (min-width: 992px) {
+	button {
+		font-size: 24px;
+		line-height: 29px;
+	}
 }
 @media (min-width: 576px) {
   .container {
@@ -421,7 +427,6 @@ p, ul, li, h1, h2, h3, b {
 					max-width: 413px;
 					padding: 26px 0 25px;
 					margin: 46px auto 30px;
-					margin: 46px 0 30px;
 				}
 			}
 			@media (min-width: 992px) {
@@ -468,7 +473,7 @@ p, ul, li, h1, h2, h3, b {
 					position: absolute;
 					top: 0;
 					left: 0;
-					transform: translate(15%, -45%);
+					transform: translate(18%, -43%);
 					width: 100%;
 				}
 			}
@@ -489,97 +494,178 @@ p, ul, li, h1, h2, h3, b {
 
 	/* cov-details START */
 	.cov-details {
-		padding: 179px 0 120px;
+		padding: 30px 0 60px;
 		.container {
 			display: flex;
+			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 		}
+		@media (min-width: 992px) {
+			.container {
+				flex-direction: row;
+			}
+		}
 		.col-one {
-			width: 713px;
+			width: 100%;
+			order: 2;
+			text-align: center;
 			h1 {
 				font-weight: 800;
-				font-size: 42px;
-				line-height: 51px;
+				font-size: 34px;
+				line-height: 40px;
+				margin-top: 60px;
+				text-transform: uppercase;
+			}
+			@media (min-width: 992px) {
+				h1 {
+					margin: 0;
+					text-transform: capitalize;
+					font-size: 42px;
+					line-height: 51px;
+				}
 			}
 			h2 {
 				font-weight: 400;
 				font-size: 22px;
 				line-height: 27px;
-				margin: 60px 0 40px;
+				margin: 30px 0;
+			}
+			@media (min-width: 992px) {
+				h2 {
+					margin: 60px 0 40px;
+				}
 			}
 			.point {
 				display: flex;
-				align-items: start;
+				flex-direction: column;
+				align-items: center;
 				p {
 						max-width: 257px;
 						width: 100%;
 						font-weight: 400;
 						font-size: 17px;
 						line-height: 21px;
-						margin-left: 15px;
+					}
+					@media (min-width: 992px) {
+						p {
+							margin-left: 15px;
+						}
 					}
 					.data-pic {
 						max-width: 30.48px;
 						width: 100%;
 						height: 51px;
+						margin-bottom: 15px;
+					}
+					@media (min-width: 992px) {
+						.data-pic {
+							margin: 0;
+						}
 					}
 					.talk-pic {
 						max-width: 46.92px;
 						width: 100%;
 						height: 51px;
+						margin-bottom: 15px;
+					}
+					@media (min-width: 992px) {
+						.talk-pic {
+							margin: 0;
+						}
 					}
 				.row-one {
 					align-items: center;
 					display: flex;
-					margin-right: 63px;
-					
+					flex-direction: column;
+					margin-bottom: 30px;
+				}
+				@media (min-width: 992px) {
+					.row-one {
+						flex-direction: row;
+						margin-right: 63px;
+						margin-bottom: 0;
+					}
 				}
 				.row-two {
 					align-items: center;
 					display: flex;
+					flex-direction: column;
+				}
+				@media (min-width: 992px) {
+					.row-two {
+						flex-direction: row;
+					}
+				}
+			}
+			@media (min-width: 992px) {
+				.point {
+					flex-direction: row;
+					align-items: start;
 				}
 			}
 			button {
-				padding: 22px 0;
+				padding: 15px 58px;
 				font-weight: 700;
-				font-size: 20px;
-				line-height: 24px;
+				font-size: 22px;
+				line-height: 40px;
 				margin-top: 60px;
+			}
+			@media (min-width: 768px) {
+				button {
+					padding: 22px 0;
+					font-size: 19px;
+					line-height: 24px;
+				}
 			}
 			@media (min-width: 992px) {
 				button {
-					padding: 22px 0;
-					font-weight: 700;
-					font-size: 18px;
-					line-height: 22px;
 					margin-top: 60px;
 				}
 			}
-			@media (min-width: 1200px) {
-				button {
-					font-size: 20px;
-					line-height: 24px;
-				}
+		}
+		@media (min-width: 992px) {
+			.col-one {
+				width: 713px;
+				text-align: left;
 			}
 		}
 		.col-two {
 			position: relative;
-			width: calc(100% / 2);
+			width: 80%;
+			margin-left: auto;
+			margin-right: auto;
 			.call-pic {
-				position: absolute;
-				top: 0;
-				left: 0;
-				transform: translate(6%, -54%);
-				width: 100%;
+				display: block;
 			}
+			@media (min-width: 992px) {
+				.call-pic {
+					position: absolute;
+					top: 0;
+					left: 0;
+					transform: translate(12%, -54%);
+					padding: 0;
+				}
+			}
+		}
+		@media (min-width: 992px) {
+			.col-two {
+				width: calc(100% / 2);
+				order: 2;
+				margin: 0;
+			}
+		}
+	}
+	@media (min-width: 992px) {
+		.cov-details {
+			padding: 179px 0 120px;
 		}
 	}
 	/* cov-details END */
 
 	/* get-started START */
 	.get-started {
-		padding-bottom: 120px;
+		padding-bottom: 60px;
 		.container {
 			display: block;
 			justify-content: center;
@@ -587,86 +673,178 @@ p, ul, li, h1, h2, h3, b {
 		}
 		h1 {
 			font-weight: 800;
-			font-size: 42px;
-			line-height: 51px;
+			font-size: 34px;
+			line-height: 40px;
+			text-transform: uppercase;
+		}
+		@media (min-width: 992px) {
+			h1 {
+				margin: 0;
+				text-transform: capitalize;
+				font-size: 42px;
+				line-height: 51px;
+			}
 		}
 		h2 {
 			font-weight: 400;
 			font-size: 24px;
 			line-height: 29px;
-			margin: 60px 0 0 0;
+			margin: 30px 0 0 0;
+		}
+		@media (min-width: 992px) {
+			h2 {
+				margin: 60px 0 0 0;
+			}
 		}
 		.point {
 			display: flex;
+			flex-direction: column;
 			h1 {
 				position: absolute;
 				top: -50%;
 				left: 50%;
-				transform: translate(-50%, -33%);
+				transform: translate(-50%, -28%);
 				margin: 0 auto;
 				color: rgba(0, 93, 196, 0.11);
 				font-weight: 900;
 				font-size: 290.244px;
 				line-height: 354px;
 			}
+			@media (min-width: 992px) {
+				h1 {
+					transform: translate(-50%, -33%);
+				}
+			}
 			.wrapper {
 				position: relative;
 			}
+			.row-one {
+				h2 {
+					margin: 154px 0 30px;
+				}
+				@media (min-width: 992px) {
+					h2 {
+						margin: 164px 0 30px;
+					}
+				}
+			}
+			.row-two {
+				h2 {
+					margin: 210px 0 30px;
+				}
+				@media (min-width: 992px) {
+					h2 {
+						margin: 164px 0 30px;
+					}
+				}
+			}
 			.row-one, .row-two {
-				.wrapper {
-					margin-right: 60px;
+				@media (min-width: 992px) {
+					.wrapper {
+						margin-right: 60px;
+					}
 				}
 			}
 			h2 {
-				margin: 164px 0 30px;
+				margin: 210px 0 30px;
 				font-weight: 700;
 				font-size: 24px;
 				line-height: 29px;
+			}
+			@media (min-width: 992px) {
+				h2 {
+					margin: 164px 0 30px;
+				}
 			}
 			p {
 				font-weight: 500;
 				font-size: 18px;
 				line-height: 22px;
+				max-width: 334px;
+				width: 100%;
+				margin-right: auto;
+				margin-left: auto;
+			}
+			@media (min-width: 992px) {
+				p {
+					max-width: 100%;
+					margin: 164px 0 30px;
+					margin: 0;
+				}
+			}
+		}
+		@media (min-width: 992px) {
+			.point {
+				flex-direction: row;
 			}
 		}
 		button {
 			max-width: 413px;
-			margin-top: 50px;
+			margin-top: 83px;
+		}
+		@media (min-width: 992px) {
+			button{
+				margin-top: 50px;
+			}
+		}
+	}
+	@media (min-width: 992px) {
+		.get-started {
+			padding-bottom: 120px;
 		}
 	}
 	/* get-started END */
 
 	/* check-qualify START */
 	.check-qualify {
-		padding-bottom: 120px;
+		padding-bottom: 60px;
 		.container {
 			display: block;
 			justify-content: center;
 			text-align: center;
 		}
 		h1 {
-			font-weight: 800;
-			font-size: 42px;
-			line-height: 51px;
+				font-weight: 800;
+				font-size: 34px;
+				line-height: 40px;
+				text-transform: uppercase;
+		}
+		@media (min-width: 992px) {
+			h1 {
+				text-transform: capitalize;
+				font-size: 42px;
+				line-height: 51px;
+			}
 		}
 		h2 {
 			display: block;
 			max-width: 541px;
 			width: 100%;
-			margin: 60px auto 30px;
+			margin: 30px 0;
 			font-weight: 400;
 			font-size: 24px;
 			line-height: 29px;
 		}
+		@media (min-width: 992px) {
+			h2 {
+				margin: 60px auto 30px;
+			}
+		}
 		.point {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			grid-column-gap: 75px;
+			display: block;
 			align-items: center;
 			img {
 				margin-left: auto;
 				margin-right: auto;
 				margin-bottom: 8px;
+			}
+			.apple-pic, .dollar-pic {
+				margin-top: 30px;
+			}
+			@media (min-width: 992px) {
+				.apple-pic, .dollar-pic {
+					margin-top: 0;
+				}
 			}
 			h1 {
 				font-weight: 700;
@@ -693,31 +871,57 @@ p, ul, li, h1, h2, h3, b {
 					margin: 0 auto;
 				}
 			}
+			.row-three {
+				p {
+					max-width: 346px;
+					width: 100%;
+					margin: 0 auto;
+				}
+			}
+		}
+		@media (min-width: 992px) {
+			.point {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				grid-column-gap: 70px;
+			}
 		}
 		button {
 			max-width: 413px;
 			margin-top: 52px;
 		}
 	}
+	@media (min-width: 992px) {
+		.check-qualify {
+			padding-bottom: 120px;
+		}
+	}
 	/* check-qualify END */
 
 	/* faq START */
 	.faq {
-		padding-bottom: 120px;
+		padding-bottom: 60px;
 		.column {
 			background: #00409F;
-			padding: 120px 64px;
+			padding: 30px 33px;
 			border-radius: 30px;
 			color: #FFFFFF;
 			h1 {
 				font-weight: 800;
-				font-size: 42px;
-				line-height: 51px;
+				font-size: 36px;
+				line-height: 44px;
 				text-align: center;
+			}
+			@media (min-width: 768px) {
+				h1 {
+					font-size: 42px;
+					line-height: 51px;
+				}
 			}
 			.point {
 				margin: 60px 0 50px;
 				display: flex;
+				flex-direction: column;
 				.row-one {
 					width: 100%;
 					max-width: 498.5px;
@@ -751,9 +955,24 @@ p, ul, li, h1, h2, h3, b {
 					margin-bottom: 30px;
 				}
 			}
+			@media (min-width: 992px) {
+				.point {
+					flex-direction: row;
+				}
+			}
 			button {
 				max-width: 413px;
 			}
+		}
+		@media (min-width: 992px) {
+			.column {
+				padding: 120px 64px;
+			}
+		}
+	}
+	@media (min-width: 992px) {
+		.faq {
+			padding-bottom: 120px;
 		}
 	}
 	/* faq END */
@@ -778,9 +997,15 @@ p, ul, li, h1, h2, h3, b {
 		}
 		p {
 			font-weight: 600;
-			font-size: 15px;
+			font-size: 16px;
 			line-height: 135.9%;
 			color: #FFFFFF;
+		}
+		@media (min-width: 992px) {
+			p {
+				font-size: 15px;
+				line-height: 135.9%;
+			}
 		}
 	}
 	/* footer END */
