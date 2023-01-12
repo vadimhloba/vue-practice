@@ -1,38 +1,45 @@
 <template>
 	<div class="page-index">
 
-		<header>
-			<div class="container">
-        <div class="header-logo">
-          <NuxtLogo/>
-        </div>
-        <div class="logo-desc">
-          <p>US Phone Program</p>
-        </div>
-      </div>
-		</header>
+		<div class="bg-main">
 
-		<section class="free-smartphone">
-			<div class="container">
-				<div class="col-one">
-					<h1>Get A <b>Free Smartphone</b> From The Government</h1>
-					<h2>If you qualify, you will receive:</h2>
-					<ul>
-						<li>FREE smartphone*</li>
-						<li>FREE unlimited talk</li>
-						<li>FREE unlimited texting</li>
-						<li>FREE high-speed data</li>
-						<li>PLUS free hotspot service</li>
-					</ul>
-					<button>SEE IF YOU QUALIFY >></button>
-					<p>* You may also keep your current compatible smartphone and
-						phone number and receive a program SIM for free service.</p>
+			
+
+			<section class="free-smartphone">
+				<div class="header">
+					<div class="container">
+  	  	    <div class="header-logo">
+	    	      <NuxtLogo/>
+    	    	</div>
+    	    	<div class="logo-desc">
+    	      	<p>US Phone Program</p>
+    	    	</div>
+    	  	</div>
 				</div>
-				<div class="col-two">
-					<img src="img/phone-pic.png" class="phone-pic"/>
+				<div class="wrapper">
+					<div class="container">
+						<div class="col-one">
+							<h1>Get A <b>Free Smartphone</b> From The Government</h1>
+							<h2>If you qualify, you will receive:</h2>
+							<ul>
+								<li>FREE smartphone*</li>
+								<li>FREE unlimited talk</li>
+								<li>FREE unlimited texting</li>
+								<li>FREE high-speed data</li>
+								<li>PLUS free hotspot service</li>
+							</ul>
+							<button>SEE IF YOU QUALIFY >></button>
+							<p>* You may also keep your current compatible smartphone and
+								phone number and receive a program SIM for free service.</p>
+						</div>
+						<div class="col-two">
+							<img src="img/phone-pic.png" class="phone-pic"/>
+						</div>
+					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+			
+		</div>
 
 		<section class="cov-details">
 			<div class="container">
@@ -144,24 +151,59 @@
 					<h1>FREQUENTLY ASKED QUESTIONS`</h1>
 					<div class="point">
 						<div class="row-one">
-							<!-- add style marks -->
-							<ul>
-								<li>IS THIS A SCAM?</li>
-								<p>No. This is an official program provided
-									by the United States Federal Government.
-									Specifically, the LifeLine ACP.</p>
-								<li>What is the Affordable Connectivity Program (ACP)?</li>
-								<li>Am I eligible?</li>
-								<li>How do I apply for ACP?</li>
-							</ul>
+							<div class="marks">
+								<svg width="26" height="4" viewBox="0 0 26 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 2H23.5" stroke="white" stroke-width="4" stroke-linecap="round"/>
+									</svg>
+								<p>IS THIS A SCAM?</p>
+							</div>
+							<p class="post">No. This is an official program provided
+								by the United States Federal Government.
+								Specifically, the LifeLine ACP.</p>
+								<div class="marks">
+									<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 13H23.5" stroke="white" stroke-width="4" stroke-linecap="round"/>
+										<path d="M12.75 23.75L12.75 2.25" stroke="white" stroke-width="4" stroke-linecap="round"/>
+										</svg>
+									<p>What is the Affordable Connectivity Program (ACP)?</p>
+								</div>
+								<div class="marks">
+									<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 13H23.5" stroke="white" stroke-width="4" stroke-linecap="round"/>
+										<path d="M12.75 23.75L12.75 2.25" stroke="white" stroke-width="4" stroke-linecap="round"/>
+										</svg>
+									<p>Am I eligible?</p></div>
+								<div class="marks">
+									<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 13H23.5" stroke="white" stroke-width="4" stroke-linecap="round"/>
+										<path d="M12.75 23.75L12.75 2.25" stroke="white" stroke-width="4" stroke-linecap="round"/>
+										</svg>
+									<p>How do I apply for ACP?</p>
+							</div>
 						</div>
 						<div class="row-two">
-							<ul>
-								<li>What does "one per household" mean?</li>
-								<li>I was affected by the COVID-19 pandemic
-									and lost my job. Am I eligible for ACP?`</li>
-								<li>Are there any restrictions for this program?</li>
-							</ul>
+							<div class="marks">
+								<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 13H23.5" stroke="white" stroke-width="4" stroke-linecap="round"/>
+									<path d="M12.75 23.75L12.75 2.25" stroke="white" stroke-width="4" stroke-linecap="round"/>
+									</svg>
+								<p>What does "one per household" mean?</p>
+							</div>
+							<div class="marks">
+								<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2 13H23.5" stroke="white" stroke-width="4" stroke-linecap="round"/>
+									<path d="M12.75 23.75L12.75 2.25" stroke="white" stroke-width="4" stroke-linecap="round"/>
+									</svg>
+								<p>I was affected by the COVID-19 pandemic
+								and lost my job. Am I eligible for ACP?`</p>
+							</div>
+								<div class="marks">
+									<svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 13H23.5" stroke="white" stroke-width="4" stroke-linecap="round"/>
+										<path d="M12.75 23.75L12.75 2.25" stroke="white" stroke-width="4" stroke-linecap="round"/>
+										</svg>
+									<p>Are there any restrictions for this program?</p>
+								</div>
 						</div>
 					</div>
 					<button>CONFIRM ELIGIBILITY>></button>
@@ -280,13 +322,22 @@ p, ul, li, h1, h2, h3, b {
 .page-index {
 	background: radial-gradient(207.45% 148.69% at 43.02% 104.62%, #F9FBFB 0%, #F9FBFB 0%, #3E81B8 100%, #204D8D 100%, #204D8D 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #FFFFFF;
 	/* header START */
-	header {
-		padding: 10px 0 29px;
+	.bg-main {
 		background: #0054AC;
+		width: 100%;
+		height: auto;
+	}
+	@media (min-width: 1200px) {
+		.bg-main {
+			background: url('/img/main-bg.png');
+		}
+	}
+	.header {
+		padding: 10px 0 29px;
 		.container {
 	  	display: flex;
-	  	justify-content: center;
 	  	align-items: center;
+			justify-content: center;
 		}
 		@media (min-width: 992px) {
 			.container {
@@ -305,7 +356,7 @@ p, ul, li, h1, h2, h3, b {
 		}
 	}
 	@media (min-width: 768px) {
-		header {
+		.header {
 			padding: 21px 0 56px;
 		}
 	}
@@ -314,16 +365,17 @@ p, ul, li, h1, h2, h3, b {
 	/* free-smartphone START */
 	.free-smartphone {
 		padding-bottom: 62px;
-		background: #0054AC;
-		.container {
+		.wrapper {
+			.container {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 		}
 		@media (min-width: 992px) {
-			.container {
-				flex-direction: row;
+				.container {
+					flex-direction: row;
+				}
 			}
 		}
 		.col-one {
@@ -487,7 +539,7 @@ p, ul, li, h1, h2, h3, b {
 	}
 	@media (min-width: 768px) {
 		.free-smartphone {
-			padding-bottom: 120px;
+			padding-bottom: 110px;
 		}
 	}
 	/* free-smartphone END */
@@ -902,7 +954,7 @@ p, ul, li, h1, h2, h3, b {
 	.faq {
 		padding-bottom: 60px;
 		.column {
-			background: #00409F;
+			background: url(/img/main-bg.png);
 			padding: 30px 33px;
 			border-radius: 30px;
 			color: #FFFFFF;
@@ -926,33 +978,36 @@ p, ul, li, h1, h2, h3, b {
 					width: 100%;
 					max-width: 498.5px;
 					margin-right: 30px;
-					li:last-child {
-						margin-bottom: 0;
-					}
 				}
 				.row-two {
 					width: 100%;
 					max-width: 634.54px;
-					li:last-child {
-						margin-bottom: 0;
-					}
 				}
-				ul {
+				p {
 					font-weight: 700;
 					font-size: 22px;
 					line-height: 27px;
-					li {
-						list-style: url();
-						margin-bottom: 30px;
+				}
+				.marks {
+					display: flex;
+					margin-bottom: 30px;
+					svg {
+						max-width: 43px;
+						width: 100%;
+						margin: auto 15px;
+						margin-left: 0;
 					}
 				}
-				p {
+				.marks:nth-child(5n) {
+					margin-bottom: 0;
+				}
+				.post {
 					max-width: 404px;
 					width: 100%;
 					font-weight: 500;
 					font-size: 18px;
 					line-height: 22px;
-					margin-bottom: 30px;
+					margin: 29px 0 30px 58px;
 				}
 			}
 			@media (min-width: 992px) {

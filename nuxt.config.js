@@ -1,7 +1,7 @@
 export default {
   target: 'static',
   head: {
-    title: 'content',
+    title: 'Us Phone Program',
     htmlAttrs: {
       lang: 'en'
     },
