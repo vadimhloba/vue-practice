@@ -497,7 +497,6 @@ p, ul, li, h1, h2, h3, b {
 				p {
 					font-size: 18px;
 					line-height: 22px;
-					padding: 0 30px;
 				}
 			}
 			@media (min-width: 992px) {
@@ -518,11 +517,11 @@ p, ul, li, h1, h2, h3, b {
 			width: 100%;
 			.phone-pic {
 				display: block;
-				margin-top: 20px;
+				margin: 20px auto 0;
 			}
 			@media (min-width: 992px) {
 				.phone-pic {
-					margin-top: 0;
+					margin: 0;
 					position: absolute;
 					top: 0;
 					left: 0;

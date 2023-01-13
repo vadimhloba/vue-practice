@@ -148,6 +148,39 @@ export default {
 }
 </script>
 
+<style scoped>
+	.container {
+	  max-width: 100%;
+	  margin-right: auto;
+	  margin-left: auto;
+	  padding: 0 15px;
+	}
+	@media (min-width: 576px) {
+	  .container {
+	    width: 540px;
+	  }
+	}
+	@media(min-width:768px) {
+	  .container {
+	    width: 760px;
+	  }
+	}
+	@media(min-width:992px) {
+	  .container {
+	    width: 990px;
+	  }
+	}
+	@media(min-width:1200px) {
+	  .container {
+	    width: 1180px;
+	  }
+	}
+	p, ul, li, h1, h2, h3, h4, h5 b {
+		margin: 0;
+		max-width: 100%;
+	}
+</style>
+
 <style lang="scss" scoped>
 /* page-phoneQuiz START */
 .page-phoneQuiz {
@@ -165,18 +198,31 @@ export default {
 	  padding: 21px 0 51px;
 		.container {
 	  	display: flex;
-	  	justify-content: flex-start;
+	  	justify-content: center;
 	  	align-items: center;
+		}
+		@media (min-width: 992px) {
+			.container {
+	  		justify-content: flex-start;
+			}
 		}
 		.logo-desc {
 	  	font-weight: 800;
-	  	font-size: 23.295px;
-	  	line-height: 28px;
+	  	font-size: 12.2325px;
+	  	line-height: 15px;
 	  	text-transform: uppercase;
 	  	color: #FFFFFF;
 	  	width: 100%;
 	  	max-width: 130px;
-	  	margin-left: 12px;
+	  	margin-left: 6px;
+		}
+		@media (min-width: 768px) {
+			.logo-desc {
+	  		font-size: 23.295px;
+		  	line-height: 28px;
+				margin-left: 12px;
+				max-width: 130px;
+			}
 		}
 	}
 	/* header END */
@@ -187,8 +233,14 @@ export default {
 		.container {
 	  	justify-content: center;
 	  	display: block;
-			padding-top: 200px;
-	  	padding-bottom: 265px;
+			padding-top: 180px;
+	  	padding-bottom: 200px;
+		}
+		@media (min-width: 768px) {
+			.container {
+				padding-top: 200px;
+	  		padding-bottom: 265px;
+			}
 		}
 		.dowloadPre {
 	  	position: relative;
@@ -200,14 +252,29 @@ export default {
 		h3 {
 	  	position: absolute;
 	  	font-weight: 700;
-	  	font-size: 55px;
-	  	line-height: 67px;
+	  	font-size: 40px;
+	  	line-height: 46px;
 	  	color: #FFFFFF;
 			top: 10%;
 			left: 50%;
 			transform: translate(-50%, -10%);
 			max-width: 651px;
-			white-space: nowrap;
+			width: 100%;
+			white-space: wrap;
+			text-align: center;
+		}
+		@media (min-width: 576px) {
+			h3 {
+				font-size: 48px;
+	  		line-height: 61px;
+			}
+		}
+		@media (min-width: 768px) {
+			h3 {
+				font-size: 55px;
+	  		line-height: 67px;
+				white-space: nowrap;
+			}
 		}
 		.counter {
 	  	position: absolute;
@@ -241,7 +308,7 @@ export default {
 	  	position: relative;
 	  	max-width: 745px;
 	  	width: 100%;
-	  	height: 903px;
+	  	height: 1100px;
 	  	margin: 0 auto;
 	  	background: #FFFFFF;
 	  	border-radius: 14px;
@@ -249,12 +316,42 @@ export default {
 	  	color: #000000;
 	  	z-index: 1;
 		}
+		@media (min-width: 576px) {
+			.wrap {
+	  		height: 1040px;
+			}
+		}
+		@media (min-width: 768px) {
+			.wrap {
+	  		height: 953px;
+			}
+		}
+		@media (min-width: 992px) {
+			.wrap {
+	  		height: 903px;
+			}
+		}
 		.wrapper {
 	  	position: absolute;
 	  	z-index: 2;
 	  	height: auto;
-	  	max-width: 745px;
+	  	max-width: 380px;
 	  	width: 100%;
+		}
+		@media (min-width: 576px) {
+			.wrapper {
+	  		max-width: 460px;
+			}
+		}
+		@media (min-width: 768px) {
+			.wrapper {
+	  		max-width: 625px;
+			}
+		}
+		@media (min-width: 992px) {
+			.wrapper {
+	  		max-width: 745px;
+			}
 		}
 		h1 {
 	  	display: block;
@@ -286,7 +383,12 @@ export default {
 			}
 		}
 		.text-main {
-	  	padding: 0 61px 0 60px;
+	  	padding: 0 30px;
+		}
+		@media (min-width: 768px) {
+			.text-main {
+	  		padding: 0 61px 0 60px;
+			}
 		}
 		h2 {
 	  	font-weight: 800;
@@ -316,11 +418,26 @@ export default {
 	  	color: #BFBFBF;
 	  	border: 1px solid #BFBFBF;
 	  	border-radius: 15px;
-	  	max-width: 670px;
 	  	width: 100%;
+			max-width: 340px;
 	  	transition: .7s;
 			:focus {
 	  		border: 1px solid #555;
+			}
+		}
+		@media (min-width: 576px) {
+			input[type=text] {
+	  		max-width: 420px;
+			}
+		}
+		@media (min-width: 768px) {
+			input[type=text] {
+	  		max-width: 590px;
+			}
+		}
+		@media (min-width: 992px) {
+			input[type=text] {
+	  		max-width: 670px;
 			}
 		}
 		input[type=submit] {
