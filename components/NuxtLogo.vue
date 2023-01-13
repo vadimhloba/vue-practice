@@ -31,3 +31,16 @@
 	</defs>
 	</svg>
 </template>
+
+<style scoped>
+svg {
+	width: 52px;
+	height: 52px;
+}
+@media (min-width: 768px) {
+	svg {
+		width: 99px;
+		height: 99px;
+	}
+}
+</style>

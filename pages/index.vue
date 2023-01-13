@@ -28,7 +28,7 @@
 								<li>FREE high-speed data</li>
 								<li>PLUS free hotspot service</li>
 							</ul>
-							<button>SEE IF YOU QUALIFY >></button>
+							<button @click="goToNextPage">SEE IF YOU QUALIFY >></button>
 							<p>* You may also keep your current compatible smartphone and
 								phone number and receive a program SIM for free service.</p>
 						</div>
@@ -66,7 +66,7 @@
 								Most GSM Smartphones are compatible.</p>
 						</div>
 					</div>
-					<button>GET FREE UNLIMITED TALK &TEXT + DATA EVERY MONTH >></button>
+					<button @click="goToNextPage">GET FREE UNLIMITED TALK &TEXT + DATA EVERY MONTH >></button>
 				</div>
 				<div class="col-two">
 					<img src="img/call-pic.png" class="call-pic"/>
@@ -104,7 +104,7 @@
 							</div>
 						</div>
 					</div>
-					<button>CONFIRM ELIGIBILITY >></button>
+					<button @click="goToNextPage">CONFIRM ELIGIBILITY >></button>
 				</div>
 			</div>
 		</section>
@@ -140,7 +140,7 @@
 							</div>
 						</div>
 					</div>
-					<button>CHECK ELIGIBILITY >></button>
+					<button @click="goToNextPage">CHECK ELIGIBILITY >></button>
 				</div>
 			</div>
 		</section>
@@ -206,7 +206,7 @@
 								</div>
 						</div>
 					</div>
-					<button>CONFIRM ELIGIBILITY>></button>
+					<button @click="goToNextPage">CONFIRM ELIGIBILITY>></button>
 				</div>
 			</div>
 		</section>
@@ -215,7 +215,7 @@
 			<div class="container">
 				<div class="column">
 					<UsMap class="map-pic"/>
-					<button>CONFIRM ELIGIBILITY>></button>
+					<button @click="goToNextPage">CONFIRM ELIGIBILITY>></button>
 				</div>
 			</div>
 		</section>
@@ -237,9 +237,13 @@
 	</div>
 </template>
 
-<script scoped>
+<script>
 export default{
-
+	methods: {
+		goToNextPage() {
+			this.$router.push({name: 'phoneQuiz'})
+		}
+	}
 }
 </script>
 
@@ -254,41 +258,13 @@ html, body {
   padding: 0;
 	height: auto;
 	font-family: 'Montserrat', sans-serif;
+	overflow-x: hidden;
 }
 .container {
-  width: 100%;
+  max-width: 100%;
   margin-right: auto;
   margin-left: auto;
   padding: 0 15px;
-}
-input[type=text], input[type=submit], button{
-	cursor: pointer;
-}
-img {
-	display: block;
-	max-width: 100%;
-	height: auto;
-
-}
-button {
-	display: block;
-	padding: 26px 0 25px;
-	width: 100%;
-	margin: 0 auto;
-	background: #A91313;
-	box-shadow: inset 0px 33px 23px rgba(255, 187, 187, 0.45);
-	border-radius: 15px;
-	border: 0;
-	font-weight: 700;
-	font-size: 22px;
-	line-height: 27px;
-	color: #FFFFFF;
-}
-@media (min-width: 992px) {
-	button {
-		font-size: 24px;
-		line-height: 29px;
-	}
 }
 @media (min-width: 576px) {
   .container {
@@ -310,12 +286,46 @@ button {
     width: 1180px;
   }
 }
+input[type=text], input[type=submit], button{
+	cursor: pointer;
+}
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+
+}
+button {
+	display: block;
+	padding: 26px 0 25px;
+	width: 100%;
+	margin: 0 auto;
+	background: #A91313;
+	box-shadow: inset 0px 33px 23px rgba(255, 187, 187, 0.45);
+	border-radius: 15px;
+	border: 0;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 22px;
+	color: #FFFFFF;
+}
+@media (min-width: 768px) {
+	button {
+		font-size: 24px;
+		line-height: 29px;
+	}
+}
+button:hover {
+	box-shadow: inset 0px 23px 13px rgba(255, 187, 187, 0.45);
+	transition: .3s;
+}
 </style>
 
 <style lang="scss" scoped>
 
 p, ul, li, h1, h2, h3, b {
 	margin: 0;
+	max-width: 100%;
 }
 
 /* #index START */
@@ -323,14 +333,9 @@ p, ul, li, h1, h2, h3, b {
 	background: radial-gradient(207.45% 148.69% at 43.02% 104.62%, #F9FBFB 0%, #F9FBFB 0%, #3E81B8 100%, #204D8D 100%, #204D8D 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #FFFFFF;
 	/* header START */
 	.bg-main {
-		background: #0054AC;
+		background: radial-gradient(197.23% 205.54% at -48.39% -77.23%,rgba(249,251,251,.6) 0,rgba(249,251,251,.6) 6.78%,rgba(32,77,141,.6) 59%,rgba(0,16,113,.6) 75%,rgba(0,16,113,.6) 100%),radial-gradient(186.77% 69.6% at -90.42% -34.33%,#f9fbfb 0,#f9fbfb 16.07%,#3e81b8 68.55%,#001071 100%,#001071 0);
 		width: 100%;
 		height: auto;
-	}
-	@media (min-width: 1200px) {
-		.bg-main {
-			background: url('/img/main-bg.png');
-		}
 	}
 	.header {
 		padding: 10px 0 29px;
@@ -346,18 +351,21 @@ p, ul, li, h1, h2, h3, b {
 		}
 		.logo-desc {
 	  	font-weight: 800;
-	  	font-size: 23.295px;
-	  	line-height: 28px;
+			font-size: 12.2325px;
+	  	line-height: 15px;
 	  	text-transform: uppercase;
 	  	color: #FFFFFF;
 	  	width: 100%;
-	  	max-width: 130px;
-	  	margin-left: 12px;
+	  	max-width: 69px;
+	  	margin-left: 6px;
 		}
-	}
-	@media (min-width: 768px) {
-		.header {
-			padding: 21px 0 56px;
+		@media (min-width: 768px) {
+			.logo-desc {
+				font-size: 23.295px;
+		  	line-height: 28px;
+				margin-left: 12px;
+				max-width: 130px;
+			}
 		}
 	}
 	/* header END */
@@ -392,12 +400,6 @@ p, ul, li, h1, h2, h3, b {
 					color: #B52A2A;
 				}
 			}
-			@media (min-width: 576px) {
-				h1 {
-					font-size: 31px;
-    			line-height: 35px;
-				}
-			}
 			@media (min-width: 768px) {
 				h1 {
 					font-size: 47px;
@@ -415,8 +417,8 @@ p, ul, li, h1, h2, h3, b {
 			}
 			h2 {
 				font-weight: 700;
-				font-size: 23px;
-				line-height: 25px;
+				font-size: 18px;
+				line-height: 22px;
 				margin: 29px 0 20px;
 				text-align: center;
 			}
@@ -435,8 +437,8 @@ p, ul, li, h1, h2, h3, b {
 			ul {
 				padding: 0;
 				font-weight: 500;
-				font-size: 20px;
-				line-height: 24px;
+				font-size: 14px;
+				line-height: 17px;
 				text-align: center;
 				li {
 					margin-bottom: 12px;
@@ -470,8 +472,6 @@ p, ul, li, h1, h2, h3, b {
 				max-width: 370px;
 				justify-content: start;
 				margin: 30px auto 20px;
-				font-size: 24px;
-				line-height: 26px;
 				padding: 18px 0;
 			}
 			@media (min-width: 768px) {
@@ -488,13 +488,15 @@ p, ul, li, h1, h2, h3, b {
 			}
 			p {
 				font-weight: 400;
-				font-size: 18px;
-				line-height: 22px;
+				font-size: 14px;
+				line-height: 19px;
 				text-align: center;
 				margin: 0 auto;
 			}
 			@media (min-width: 768px) {
 				p {
+					font-size: 18px;
+					line-height: 22px;
 					padding: 0 30px;
 				}
 			}
@@ -513,8 +515,7 @@ p, ul, li, h1, h2, h3, b {
 			}
 		}
 		.col-two {
-			width: 90%;
-			margin: 0 auto;
+			width: 100%;
 			.phone-pic {
 				display: block;
 				margin-top: 20px;
@@ -564,8 +565,8 @@ p, ul, li, h1, h2, h3, b {
 			text-align: center;
 			h1 {
 				font-weight: 800;
-				font-size: 34px;
-				line-height: 40px;
+				font-size: 32px;
+				line-height: 38px;
 				margin-top: 60px;
 				text-transform: uppercase;
 			}
@@ -659,15 +660,15 @@ p, ul, li, h1, h2, h3, b {
 			button {
 				padding: 15px 58px;
 				font-weight: 700;
-				font-size: 22px;
-				line-height: 40px;
+				font-size: 15px;
+				line-height: 150.4%;
 				margin-top: 60px;
 			}
 			@media (min-width: 768px) {
 				button {
-					padding: 22px 0;
+					padding: 26px 0;
 					font-size: 19px;
-					line-height: 24px;
+					line-height: 29px;
 				}
 			}
 			@media (min-width: 992px) {
@@ -684,11 +685,11 @@ p, ul, li, h1, h2, h3, b {
 		}
 		.col-two {
 			position: relative;
-			width: 80%;
-			margin-left: auto;
-			margin-right: auto;
+			width: 100%;
 			.call-pic {
 				display: block;
+				margin-right: auto;
+				margin-left: auto;
 			}
 			@media (min-width: 992px) {
 				.call-pic {
@@ -954,7 +955,7 @@ p, ul, li, h1, h2, h3, b {
 	.faq {
 		padding-bottom: 60px;
 		.column {
-			background: url(/img/main-bg.png);
+			background: radial-gradient(197.23% 205.54% at -48.39% -77.23%,rgba(249,251,251,.6) 0,rgba(249,251,251,.6) 6.78%,rgba(32,77,141,.6) 59%,rgba(0,16,113,.6) 75%,rgba(0,16,113,.6) 100%),radial-gradient(186.77% 69.6% at -90.42% -34.33%,#f9fbfb 0,#f9fbfb 16.07%,#3e81b8 68.55%,#001071 100%,#001071 0);
 			padding: 30px 33px;
 			border-radius: 30px;
 			color: #FFFFFF;

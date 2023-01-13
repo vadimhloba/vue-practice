@@ -148,32 +148,18 @@ export default {
 }
 </script>
 
-<style scoped>
-html, body {
-	background: radial-gradient(131.56% 209.61% at 25.7% 172.94%, #F9FBFB 0%, #F9FBFB 0%, #3E81B8 100%, #204D8D 100%, #204D8D 100%), radial-gradient(59.31% 93.85% at 50% 57.19%, #F9FBFB 0%, #F9FBFB 0%, #3E81B8 100%, #204D8D 100%, #204D8D 100%), #FFFFFF;
-}
-button {
-	display: block;
-	width: 100%;
-	max-width: 670px;
-	margin: 0 auto;
-	height: 54px;
-	background: #A91313;
-	box-shadow: inset 0px 33px 23px rgba(255, 187, 187, 0.45);
-	border-radius: 15px;
-	border: 0;
-	font-weight: 700;
-	font-size: 18px;
-	line-height: 22px;
-	color: #FFFFFF;
-	margin-top: 30px;
-}
-</style>
-
 <style lang="scss" scoped>
 /* page-phoneQuiz START */
 .page-phoneQuiz {
-
+	background: radial-gradient(131.56% 209.61% at 25.7% 172.94%, #F9FBFB 0%, #F9FBFB 0%, #3E81B8 100%, #204D8D 100%, #204D8D 100%), radial-gradient(59.31% 93.85% at 50% 57.19%, #F9FBFB 0%, #F9FBFB 0%, #3E81B8 100%, #204D8D 100%, #204D8D 100%), #FFFFFF;
+	overflow: hidden;
+	button {
+		padding: 16px 0;
+		font-weight: 700;
+		font-size: 18px;
+		line-height: 22px;
+		margin-top: 30px;
+	}
 	/* header START */
 	header {
 	  padding: 21px 0 51px;
